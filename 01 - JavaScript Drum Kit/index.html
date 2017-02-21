@@ -82,7 +82,7 @@
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => {
     key.addEventListener('transitionend', removeTransition);
-    key.addEventListener('click', e => playSound(e.target.parentNode.getAttribute('data-key')));
+    key.addEventListener('click', e => playSound(e.target.parentNode.getAttribute('data-key'))); //test
   });
 </script>
 
