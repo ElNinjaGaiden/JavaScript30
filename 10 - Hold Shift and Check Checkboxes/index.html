@@ -103,7 +103,29 @@
     </div>
   </div>
 
-<script>
-</script>
+  <script>
+    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+    let lastChecked;
+
+    checkboxes.forEach(cb => cb.addEventListener('click', handleCheck));
+
+    function handleCheck (e) {
+      let inBetween = false;
+      //Check if the shif key was down and check if they were checking (true) the checkbox
+      if(e.shiftKey && this.checked) {
+        checkboxes.forEach(cb => {
+          if(cb === this || cb === lastChecked) {
+            inBetween = !inBetween;
+          }
+
+          if(inBetween) {
+            cb.checked = true;
+          }
+        });
+      }
+
+      lastChecked = this;
+    }
+  </script>
 </body>
 </html>
